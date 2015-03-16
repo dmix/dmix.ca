@@ -1,0 +1,34 @@
+<div class='small-12 medium-9 large-9 columns'>
+  <header>
+    <div class='sort'>
+      Sort:
+      <a href="<%= @category.nil? ? "/" : category_path(@category) %>" class='sort-link'>Date</a>
+      /
+      <a href="<%= @category.nil? ? sort_path(:sort => :views) : category_sort_path(@category, :sort => :views) %>" class='sort-link'>Views</a>
+    </div>
+    <h1>blog<% if params[:category] %>: <span class='dim'><%= @category %></span><% end %></h1>
+  </header>
+</div>
+
+<div class='small-12 medium-9 large-9 columns'>
+  <div class='blog-posts'>
+    <% @posts.each_with_index do |p, i| %>
+      <%= render :partial => 'posts/blog_post', :locals => { :p => p, :i => i } %> 
+    <% end %>
+  </div>
+</div>
+
+<% content_for :footer_js do %>
+  $(document).ready(function() {
+    mixpanel.track('visted_homepage');
+    mixpanel.track_links(".sort-link", "clicked sort");
+  });
+
+  var disqus_shortname = 'dmix'; // required: replace example with your forum shortname
+  (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+<% end %>

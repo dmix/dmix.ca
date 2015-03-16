@@ -1,0 +1,22 @@
+<h3>Days since last post:     <%= time_ago_in_words(Post.last.created_at) %></h3>
+<% @posts.each do |post| %>
+  <div class='admin-row '>
+    <div class='right'>
+      <%= link_to "Edit", edit_post_path(post), class: 'button' %>
+      <%= button_to 'Delete', post_path(post), method: 'delete', :class => 'button secondary', :form_class => 'delete_btn', remote: true %>
+    </div>
+    <p class='dim'>
+      <%= post.date.strftime("%Y-%m-%d") %> ---
+      <%= post.category %>  ---
+      Published:
+      <%= post.published %> --- 
+      Pageviews
+      <%= post.pageviews %>
+    </p>
+
+    <p>
+      <b><%= post.title %></b>
+    </p>
+  </div>
+<% end %>
+<%= link_to "New Post", new_post_path %>

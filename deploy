@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "Deploying dmix.ca..."
+
+BUILD_FOLDER=build
+
+mkdir $BUILD_FOLDER
+bundle exec jekyll build --destination $BUILD_FOLDER
+cp .bitballoon build/
+cd $BUILD_FOLDER
+bitballoon deploy
+cd ..
+
+echo "> Deploy completed!"

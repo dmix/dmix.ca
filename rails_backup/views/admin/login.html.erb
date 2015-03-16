@@ -1,0 +1,10 @@
+<center>
+  <%= image_tag('logo_icon.png', :width => '200') %>
+  <br><br>
+  <%= form_for :admin, :url => {:action => :auth } do |f| %>
+    <p>
+      <%= f.password_field :im_watching_you %>
+      <%= f.submit "Login", :disable_with => 'Welcome...' %>
+    </p>
+  <% end %>
+</center>

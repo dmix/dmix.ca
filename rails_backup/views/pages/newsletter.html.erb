@@ -1,0 +1,37 @@
+<div class='small-12 medium-9 large-9 columns'>
+  <header>
+    <h1>newsletter</h1>
+  </header>
+</div>
+
+<div class='small-12 medium-9 large-9 columns'>
+  <article id='newsletter'>
+    <br>
+    <h1>Subscribe to email updates</h1>
+    <p>
+      I'm experimenting with building a mailing list.
+    </p>
+    <ul>
+      <li>Delivered once a month <b>max</b></li>
+      <li>Book launch and free access to early chapters</li>
+      <li>New blog posts (summarized)</li>
+      <li>Occassional original content related to infosec/crypto</li>
+    </ul>
+    <%= render :partial => "shared/newsletter", :locals => { :simple => true, :source => 'newsletter_page' } %>
+    <h3>Why email?</h3>
+    <ol>
+      <li>Since RSS is dieing out this is an alternate way to subscribe</li>
+      <li>Building a list to promote book launch</li>
+      <li>In exchange for an always-interesting email once-in-a-while</li>
+    </ol>
+    <p>
+      Alternatively, you can find new updates on my <a href="https://twitter.com/dmix">Twitter</a> feed.
+    </p>
+  </article>
+</div>
+
+<% content_for :footer_js do %>
+  $(document).ready(function() {
+    mixpanel.track('visted_newsletter')
+  });
+<% end %>

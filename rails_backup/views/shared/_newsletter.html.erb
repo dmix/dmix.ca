@@ -1,0 +1,26 @@
+<form class='email-form'>
+  <div class="newsletter-alert alert-box radius" style='display:none;'>A valid email address is required.</div>
+  <input type='hidden' value='<%= source %>' class='newsletter-source'>
+  <label class='newsletter-label'>
+    <% if local_assigns.has_key? :simple %>
+      Subscribe:
+    <% else %>
+      Recieve new blog updates from my <a href="/newsletter">email update</a> newsletter (once a month)
+    <% end %>
+  </label>
+  <div class="row">
+    <div class="large-9 medium-12 columns">
+      <div class="row collapse">
+        <div class="small-9 columns">
+          <input type='text' placeholder='Enter email' class='newsletter-email-input radius'>
+        </div>
+        <div class="small-3 columns">
+          <a href="#" class="button postfix radius email-form-submit">Subscribe</a>
+        </div>
+      </div>
+    </div>
+    <div class="large-12 columns book-only">
+      <input id="book-only" type="checkbox" class='newsletter-book-only-input'><label for="book-only">Book launch updates only</label>
+    </div>
+  </div>
+</form>

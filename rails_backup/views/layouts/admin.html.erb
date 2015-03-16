@@ -1,0 +1,56 @@
+<%= render :partial => "shared/cat" %>
+<!DOCTYPE html>
+<html class='no-js'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+  <title>no snakes alive</title>
+  <meta name='description' content=''>
+  <meta name='viewport' content='width=device-width'>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+</head>
+<body>
+  <div class='row'>
+    <div class='small-12 medium-12 large-12 columns'>
+      <h1><a href="<%= admin_path %>">Admin</a></h1>
+      <%= yield %>
+      <br><br><br>
+      <div class='admin-tracker'>
+        <p>
+          <b>Hello!</b> <%= request.remote_ip %>
+        </p>
+        <p>
+          <%= request.env["HTTP_USER_AGENT"] %>
+        </p>
+        <script type='text/javascript'>
+          window.fingerprint = new Fingerprint({canvas: true}).get();
+        </script>
+        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+            width="600"
+            height="400"
+            id="haxe"
+            align="middle">
+        <param name="movie" value="test.swf"/>
+        <param name="allowScriptAccess" value="always" />
+        <param name="quality" value="high" />
+        <param name="scale" value="noscale" />
+        <param name="salign" value="lt" />
+        <param name="bgcolor" value="#ffffff"/>
+        <embed src="<%= asset_path('fp.swf') %>"
+               bgcolor="#ffffff"
+               width="600"
+               height="400"
+               name="haxe"
+               quality="high"
+               align="middle"
+               allowScriptAccess="always"
+               type="application/x-shockwave-flash"
+               pluginspage="http://www.macromedia.com/go/getflashplayer"
+        />
+        </object>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

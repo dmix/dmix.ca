@@ -1,0 +1,267 @@
+$green:#43ac6a;
+$red:#F13E28;
+$blue:#008cba;
+.none, .hide {
+  display:none;
+}
+body {
+  padding-top:50px;
+  overflow-y:scroll;
+}
+@media only screen and (max-width: 40em) {
+  body {
+    padding-top:20px;
+  }
+}
+a {
+  color:$blue;
+}
+a:hover {
+  color:#111;
+}
+header {
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+  padding:5px 0px;
+  margin-bottom:5px;
+  margin-top:-3px;
+  h1 {
+    font-size:1.4em;
+    line-height:1.3em;
+    font-weight:bold;
+    margin:0;
+    color:darken(#7d7d7d,10%);
+    a {
+      font-weight:normal;
+    }
+    span {
+      font-weight:normal;
+      color:#7d7d7d;
+    }
+  }
+  .sort {
+    padding:8px 0;
+    float:right;
+    font-size:.9em;
+  }
+}
+.logo {
+  font-size:24px;
+  font-weight:bold;
+  color:#111;
+  min-height:55px;
+  padding-bottom:10px;
+  display:block;
+  margin-top:-15px;
+  .logo-icon {
+    float:left;
+    width:50px;
+    margin-right:10px;
+  }
+  span {
+    top:15px; 
+    position:relative;
+  }
+}
+.logo:hover {
+  color:#000;
+  opacity:.8;
+}
+@media only screen and (max-width: 40em) {
+  .logo {
+    font-size:22px;
+    span {
+      top:26px;
+    }
+    .logo-icon {
+      width:50px;
+    }
+  }
+}
+.categories {
+  margin-top:50px;
+  margin-left:5px;
+  margin-right:25px;
+  display:block;
+  color:#7d7d7d;
+  font-weight:bold;
+  line-height:1.5em;
+  min-height:70px;
+  opacity:.6;
+  .category {
+    display:block;
+    margin-bottom:15px;
+    a {
+      color:#000;
+    }
+    a:hover {
+      color:#000;
+      text-decoration:underline;
+    }
+    span {
+      color:#ccc;
+    }
+  }
+}
+@media only screen and (max-width: 40em) {
+  .categories {
+    border-top:1px solid #eee;
+    padding-top:15px;
+    margin-top:20px;
+    margin-bottom:10px;
+    min-height:20px;
+    opacity:.6;
+    .category {
+      display:inline-block;
+      margin-right:10px;
+    }
+  }
+}
+.author {
+  position:fixed;
+  bottom:0px;
+  padding-bottom:15px;
+  padding-top:10px;
+  width:185px;
+  color:#7d7d7d;
+  font-size:.8em;
+  a {
+    color:#333;
+    font-weight:bold;
+  }
+  a:hover {
+    color:#000;
+  }
+  hr {
+    margin:8px 0;
+  }
+  span {
+    line-height:1.4em;
+  }
+  .author-about {
+    height:38px;
+    float:left;
+    width:100%;
+    font-size:1.1em;
+    img {
+      width:34px;
+      margin-right:5px;
+      position:relative;
+      top:-2px;
+    }
+    color:#333;
+  }
+}
+
+nav {
+  height:80px;
+  a {
+    display:inline-block;
+    margin-right:40px;
+    font-size:1.0em;
+    color:#000;
+    opacity:0.6;
+    margin-top:8px;
+    font-weight:bold;
+  }
+  a.active {
+    color:#000;
+    opacity:1;
+  }
+  a:hover {
+    opacity:1;
+    color:$green;
+  }
+  .twitter-social-button {
+    float:right;
+    display:block;
+    opacity:1;
+    margin-right:0px !important;
+    margin-top:2px !important;
+    span {
+      color:#7d7d7d;
+      font-size:.9em;
+    }
+    i {
+      font-size:1.2em;
+    }
+  }
+}
+nav.small-nav {
+  height:55px;
+  float:right;
+  margin-top:9px;
+  a {
+    font-size:1em;
+    font-weight:bold;
+    margin-right:20px;
+    margin-top:5px;
+  }
+  .twitter-social-button {
+  }
+}
+@media only screen and (max-width: 20em) {
+  nav.small-nav {
+    float:none;
+    margin-top:-30px;
+    margin-bottom:10px;
+  }
+}
+.newsletter-form {
+  label {
+    width:100%;
+  }
+  .newsletter-input {
+    width:100%;
+    float:left;
+  }
+  .button {
+    width:50%;
+    float:left;
+  }
+}
+footer {
+  margin:150px 0 0px;
+  clear:both;
+  float:left;
+  width:100%;
+  font-size:.9em;
+  height:150px;
+  background:white;
+  position:relative;
+  z-index:1000;
+  .footer-nav {
+    a {
+      display:inline-block;
+      color:#111;
+      margin-right:20px;
+      font-size:1em;
+      font-weight:bold;
+    }
+  }
+  .footer-right {
+    float:right;
+    font-weight:bold;
+    a {
+      color:#333;
+      font-weight:normal;
+      margin-right:10px;
+    }
+    a:last-child {
+      margin-right:0;
+    }
+    .twitter-social-button {
+      i {
+        font-size:1.2em;
+      }
+    }
+  }
+  a:hover {
+    color:$green;
+  }
+}
+
+.homepage-alert { 
+  float:left;
+  width:50%;
+}

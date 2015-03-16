@@ -1,0 +1,33 @@
+<div class='small-12 medium-9 large-9 columns'>
+  <header>
+    <h1>about</h1>
+  </header>
+</div>
+
+<div class='small-12 medium-9 large-9 columns'>
+  <article>
+    <br>
+    <div id="bio" class="article">
+
+      <p>I'm a programmer and designer. I build web and mobile apps using Ruby, Javascript, Clojure, and recently Android.</p>
+      <p> Currently building a <a href="https://github.com/dmix/night_watchman">VPN client</a> to learn C and SSL, developing an Android app, and reading books on information security and journalism.</p>
+      <p>I've created various projects jumping from roles: design &rarr; programming &rarr; server deployment &rarr; copywriting &rarr; marketing &rarr; security. Apps I've created include a logbook for diabetics <a href="https://carelogger.com/">CareLogger</a>, an indie music site <a href="https://techcrunch.com/2007/08/27/contrastream-to-join-social-music-sites/">Contrastream</a>, and a B2B app that I sold to Hoover Vacuums.</p>
+      <p>
+        My skillset has always been oriented around building human-friendly software with a focus on <a href="http://www.amazon.com/Emotional-Design-Love-Everyday-Things/dp/0465051367/">emotional design</a>, analytics, and highly optimized UX workflows.</p>
+      <p>
+        My new hobby is journalism and information security. Ideally resulting in a combination of the two. I was inspired by Andy Greenberg's brilliant "<a href="http://www.amazon.com/This-Machine-Kills-Secrets-WikiLeakers/dp/B00B9ZCGHA">This Machine Kills Secrets</a>". So now I'm researching the world of <a href="/book">hackers and spies</a> in my spare time as a non-fiction writing subject. By proxy I'm learning how to secure linux servers, encrypt data in transit, communicate securely, and as an personal experiment: attempting to maintain strong personal privacy and security while navigating the internet day-to-day. Which feels similar to trying to secure a bank in the wild-west era.
+      </p>
+      <p>I'm also into cryptocurrencies. I'm starting to believe the future of society will be based around decentralizated systems (politically, economically, and software systems).</p>
+      <p>You can follow my new writing on my experimental <a href="/newsletter">newsletter</a> or <a href="https://twitter.com/dmix">Twitter</a>.</p>
+      <%= image_tag 'dmix_alt.jpg', style: 'float:left;margin-right:20px;width:100%;margin-bottom:20px;' %>
+     
+    </div>
+  </article>
+</div>
+
+<% content_for :footer_js do %>
+  $(document).ready(function() {
+    mixpanel.track('visted_about')
+    mixpanel.track_links("#about-twitter", "clicked twitter", {'referrer': document.referrer, 'source': 'about'});
+  });
+<% end %>

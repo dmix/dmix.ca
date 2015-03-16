@@ -1,0 +1,23 @@
+<div class='small-12 medium-3 large-3 columns' id='floating-nav'>
+  <nav class='small-nav show-for-small-only'>
+    {% include navigation.html %}
+  </nav>
+  <a href='/' class='logo'>
+    {% image logo_icon.png class='logo-icon' %}
+    <span>dmix</span>
+  </a>
+  <div class='categories'>
+    {% include categories.html %}
+  </div>
+  <div class='author hide-for-small-only'>
+      <a href="/about" class='author-about'>
+      {% image dmix_small.jpg class='blog-author-photo' %}
+      <b>Dan McGrady</b>
+    </a>
+    <br>
+    <span>
+    UX Designer & programmer from Toronto.<hr>
+    Follow <a href="http://twitter.com/dmix" id='sidebar-twitter'>@dmix</a> on twitter
+    </span>
+  </div> 
+</div>

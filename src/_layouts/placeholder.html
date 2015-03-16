@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    <div class='row'>
+      {{ content }}
+    </div>
+    <div class='row' id='content'>
+      {% include footer.html %}
+    </div>
+    <script src="assets/js/application.js"></script>
+    {% include analytics.html %}
+  </body>
+</html>

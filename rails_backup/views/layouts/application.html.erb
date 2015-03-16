@@ -1,0 +1,94 @@
+<%= render :partial => "shared/cat" %>
+<!DOCTYPE html>
+<html class='no-js'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+  <title>dmix<%= ": " + @title if @title.present? %></title>
+  <meta name='description' content=''>
+  <meta name='viewport' content='width=device-width'>
+  <%= stylesheet_link_tag 'application' %>
+  <%= auto_discovery_link_tag :atom, "/feed" %>
+  <%= auto_discovery_link_tag :rss, "/feed.rss" %>
+</head>
+<body>
+  <div class='row'>
+    <div class='small-12 medium-3 large-3 columns' id='floating-nav'>
+      <nav class='small-nav show-for-small-only'>
+        <a href="https://twitter.com/dmix" class='twitter-social-button nav-twitter'>
+          <i class="fi-social-twitter"></i>
+        </a>
+        <%= render :partial => 'shared/nav' %>
+      </nav>
+      <a href='/' class='logo'>
+        <%= image_tag 'logo_icon.png', :class => 'logo-icon' %>
+        <span>dmix</span>
+      </a>
+      <div class='categories'>
+        <%= render :collection => Category.all, :partial => 'shared/category', :as => :c %>
+      </div>
+      <% if controller_name != 'pages' %>
+      <div class='author hide-for-small-only'>
+        <a href="/about" class='author-about'>
+          <%= image_tag 'dmix_small.jpg', class: 'blog-author-photo' %>
+          <b>Dan McGrady</b>
+        </a>
+        <br>
+        <span>
+        UX Designer & programmer from Toronto.<hr>
+        Follow <a href="http://twitter.com/dmix" id='sidebar-twitter'>@dmix</a> on twitter
+        </span>
+      </div> 
+      <% end %>
+    </div>
+    <div class='medium-9 large-9 columns hide-for-small-only'>
+      <nav>
+        <a href="https://twitter.com/dmix" class='twitter-social-button right' id='small-nav-twitter'>
+          <i class="fi-social-twitter"></i>
+        </a>
+        <%= render :partial => 'shared/nav' %>
+      </nav>
+    </div>
+
+    <% flash.each do |name, msg| %>
+      <div data-alert class="alert-box alert radius homepage-alert">
+        <%= content_tag :div, msg.html_safe, :id => "flash_#{name}" if msg.is_a?(String) %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </div>
+
+  <div class='row' id='content'>
+    <%= render :partial => 'shared/footer' %>
+  </div>
+
+  <%= javascript_include_tag 'application' %>
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1908344-3', 'dmix.is');
+    ga('send', 'pageview');
+
+    (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+    typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+    b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+    mixpanel.init("f9df1cb6462146770f1fe8b578688c0b");
+
+    $(document).ready(function() {
+      mixpanel.track_pageview(location.pathname);
+      mixpanel.track_links(".author-about", "clicked author box: about");
+      mixpanel.track_links("#sidebar-twitter", "clicked twitter", {'referrer': document.referrer, 'source': 'sidebar' });
+      mixpanel.track_links("#small-nav-twitter", "clicked twitter", {'referrer': document.referrer, 'source': 'small-nav' });
+      mixpanel.track_links("#nav-twitter", "clicked twitter", {'referrer': document.referrer, 'source': 'nav' });
+      mixpanel.track_links("#footer-twitter", "clicked twitter", {'referrer': document.referrer, 'source': 'footer' });
+      mixpanel.track_links(".category-link", "clicked sidebar category");
+    })
+
+    <%= yield :footer_js %>
+  </script>
+</body>
+</html>

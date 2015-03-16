@@ -1,0 +1,4 @@
+<div class='category'>
+  <%= link_to(c,category_path(c), class: 'category-link') %>
+  <span><%= Post.category_count(c) %></span>
+</div>

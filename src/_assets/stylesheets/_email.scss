@@ -1,0 +1,37 @@
+.email-form {
+  $email-bg-color:#fffbc7;
+  background:$email-bg-color;
+  border-left:3px solid darken($email-bg-color, 20%);
+  padding:17px 15px 0;
+  .newsletter-alert {
+    a {
+      color:white;
+      font-weight:bold;
+      text-decoration:underline;
+    }
+  }
+  .newsletter-label {
+    font-weight:bold;
+    font-size:1.1em;
+    a {
+      color:#333;
+      text-decoration:underline;
+    }
+    a:hover {
+      color:#abd105;
+    }
+  }
+  .book-only {
+    position:relative;
+    top:-10px;
+    margin-bottom:-5px;
+    font-size:.9em;
+    label {
+      opacity:.8;
+    }
+    input {
+      position:relative;
+      top:2px;
+    }
+  }
+}

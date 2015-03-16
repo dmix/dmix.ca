@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    <div class='row'>
+      {% include header.html %}
+      <div class='medium-9 large-9 columns hide-for-small-only'>
+        <nav>
+          {% include navigation.html %}
+        </nav>
+      </div>
+      {{ content }}
+    </div>
+    <div class='row' id='content'>
+      {% include footer.html %}
+    </div>
+    {% javascript application %}
+    {% include analytics.html %}
+  </body>
+</html>

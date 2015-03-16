@@ -1,0 +1,39 @@
+<div class='blog-post <% if i == 0 %>new<% end %>' data-url='<%= p.url %>'>
+  <div class='blog-post-title'>
+    <a href="<%= p.url %>" class='blog-post-title-text'>
+      <%= p.title %>
+    </a>
+  </div>
+  <div class='blog-post-metadata'>
+    <div class='blog-metadata blog-post-tag'>
+      <a href="<%= category_path(p.category) %>"><%= p.category %></a>
+    </div>
+    <div class='blog-metadata blog-post-date'>
+      <i class="fi-calendar"></i>
+      <%= p.date_friendly %>
+    </div>
+    <div class='blog-metadata blog-post-views hide-for-small-only'>
+      <i class="fi-graph-bar"></i>
+      <%= number_with_delimiter(p.pageviews) %>
+      views
+    </div>
+    <div class='blog-metadata blog-post-views hide-for-small-only'>
+      <i class="fi-comment"></i>
+      <a href='<%= p.url %>#disqus_thread' class='comment-count'>
+        0 comments 
+      </a>
+    </div>
+  </div>
+  <div class='blog-post-title-summary'>
+    <p><%= truncate(p.preview, :length => 180) %></p>
+  </div>
+  <div class='blog-post-footer'>
+    <a href='<%= blog_post_path(p.permalink) %>' class='read-more button secondary tiny '>
+      Read 
+      <span>&raquo;</span>
+    </a>
+    <span class='word-count'>
+      ~<%= p.word_count %> min read
+    </span>
+  </div>
+</div>

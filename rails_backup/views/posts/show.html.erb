@@ -1,0 +1,56 @@
+<div class='small-12 medium-9 large-9 columns'>
+  <article class='blog-article'>
+    <h1><%= @post.title %></h1>
+    <h2><%= @post.preview %></h2>
+
+    <div class='blog-author'>
+      <div class='viewcount'>
+        <i class="fi-comment"></i>
+        <a href='<%= @post.url %>#disqus_thread' class='comment-count'>
+          0 comments 
+        </a>
+      </div>
+      <div class='viewcount'>
+        <i class="fi-graph-bar"></i>
+        <%= number_with_delimiter(@post.pageviews) %>
+        views
+      </div>
+      Posted
+      <%= time_ago_in_words(@post.date) %> ago
+      in
+      <b>
+        <a href="<%= category_path(@post.category) %>" class='blog-category-link'>
+          <%= @post.category %>
+        </a>
+      </b>
+    </div> 
+
+    <% if File.exist? "#{Rails.root}/posts/#{params[:permalink]}.html" %>
+      <%= render :file => "#{Rails.root}/posts/#{params[:permalink]}.html" %>
+    <% else %>
+      <%= @post.content.html_safe %>
+    <% end %>
+    <br>
+    <%= render :partial => "shared/newsletter", :locals => { source: 'blog_show' } %>
+  </article>
+
+  <div class='comments'>
+    <%= render :partial => 'comments' %>
+  </div>
+</div>
+
+
+<% content_for :footer_js do %>
+  POST_ID = "<%= @post.id %>";
+  $(document).ready(function() {
+    mixpanel.track('visted_blog_post', { url: location.pathname });
+    mixpanel.track_links(".blog-category-link", "clicked author box: category");
+  });
+  Rainbow.extend('shell', [
+    {
+        'name': 'keyword',
+        'pattern': /function|return|continue|break/g
+    }
+  ], true);
+  Rainbow.color();
+<% end %>

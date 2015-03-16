@@ -1,0 +1,59 @@
+.homepage-content {
+  font-family: "proxima-nova", sans-serif;
+  padding-top: 50px;
+  p {
+    font-size: 1.4rem;
+    color: #1a2432;
+  }
+}
+
+.call-to-action {
+  margin-top: 30px;
+  margin-bottom: -10px;
+  .button {
+    background: #E74C3C;
+    background: rgba(255,255,255,0.1);
+    font-size: 1.2em;
+    padding: 15px 25px;
+  }
+}
+
+.point {
+  position: absolute;
+  $point-font: 0.8em;
+  .point-content {
+    float: left;
+    margin-top: -11px;
+    color: rgba(255,255,255,0.3);
+    text-align: left;
+    h5 {
+      font-weight: bold;
+      font-size: $point-font;
+      color: rgba(255,255,255,0.5);
+    }
+    li {
+      font-size: $point-font;
+    }
+  }
+  .point-arrow {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 80px;
+    height:2px;
+    float: left;
+    margin: 0 5px;
+  }
+}
+
+$base-height: 100px;
+.point.point-a {
+  top: $base-height + 155px;
+  left: 60px;
+}
+.point.point-b {
+  top: $base-height + 125px;
+  left: 700px;
+}
+.point.point-c {
+  top: $base-height + 275px;
+  left: 700px;
+}

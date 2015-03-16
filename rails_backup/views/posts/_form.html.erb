@@ -1,0 +1,40 @@
+<div id="form">
+  <p>
+    <%= f.submit "Save", :disable_with => 'Saving...', :class => "button" %>
+  </p>
+  <p>
+    <%= f.label :pageviews, "Pageviews" %>
+    <%= f.text_field :pageviews, :size => 5 %>
+  </p>
+  <p>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :preview, "preview" %>
+    <%= f.text_field :preview %>
+  </p>
+  <p>
+    <%= f.label :permalink, "Permalink" %>
+    <%= f.text_field :permalink %>
+  </p>
+  <p>
+    <%= f.label :content, "Content" %>
+    <%= f.text_area :content, :style => "height:400px;" %>
+  </p>
+  <p>
+    <%= f.label :date, "Date" %>
+    <%= f.date_select(:date) %>
+  </p>
+  <p>
+    <%= f.label :published, "Published" %>
+    <%= f.check_box :published %>
+  </p>
+  <p>
+    <%= f.label :category, "Category" %>
+    <%= f.select :category, Category.all %>
+  </p>
+  <p>
+    <%= f.submit "Save", :disable_with => 'Saving...', :class => "button" %>
+  </p>
+</div>
